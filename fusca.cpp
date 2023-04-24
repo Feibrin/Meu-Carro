@@ -1,46 +1,30 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 using namespace std;
-
-class JogoAdivinhacao {
-    
-    private: 
-      int numerosecreto;
-      int tentativas;
-    
+class Carro
+{
     public:
-      JogoAdivinhacao() {
-          
-        srand(time(0));
-        numerosecreto = rand () % 100 + 1;
-        tentativas = 0;
-      }
-      
-    void jogar () {
-        
-      int palpite;
-      do {
-         cout << "Digite um numero entre 1 e 100: ";
-         cin >> palpite;
-         tentativas++;
-         if (palpite > numerosecreto) {
-            cout << "O numero secreto e menor!" << endl;
-         } else if (palpite < numerosecreto) {
-             cout << "O numero secreto e maior!" << endl;
-         } else {
-             cout << "Parabens! Voce acertou o numero em "
-             << tentativas << " tentativas!" << endl;
-            }
-            
-      } while (palpite != numerosecreto);
-    }
+    
+    string Cor;
+    string Modelo;
+    float VelMax;
+    void Buzinar ();
 };
 
-int main() {
-    JogoAdivinhacao jogo;
-    jogo.jogar();
-    return 0;
-}
+int main ()
+{
+    Carro MeuCarro;
     
+    MeuCarro.Cor = "Branco";
+    MeuCarro.Modelo = "Fusca";
+    MeuCarro.VelMax = 150.0f;
+    
+    MeuCarro.Buzinar();
+    cout << MeuCarro.Cor << endl;
+    cout << MeuCarro.VelMax << endl;
+    cout << MeuCarro.Modelo << endl;
+}
+
+void Carro::Buzinar(){
+    cout << "Bi,Bi!!!" << endl;
+}
 
